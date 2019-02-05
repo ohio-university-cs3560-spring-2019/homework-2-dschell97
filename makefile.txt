@@ -1,0 +1,17 @@
+CFLAGS = -Wall -std=c++11
+
+
+prog1: hw1.o main.o
+	g++ $(CFLAGS) hw1.o main.o -o prog1
+
+
+hw1.o: hw1.cc hw1.h
+	g++ -c $(CFLAGS) hw1.cc
+
+
+main.o: main.cc hw1.h
+	g++ -c $(CFLAGS) main.cc
+
+
+clean:
+	rm * .o(objects) prog1
